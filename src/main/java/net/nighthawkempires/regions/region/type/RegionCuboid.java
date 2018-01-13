@@ -1,6 +1,7 @@
 package net.nighthawkempires.regions.region.type;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.nighthawkempires.core.NECore;
 import net.nighthawkempires.core.file.FileType;
@@ -23,6 +24,7 @@ public class RegionCuboid extends Region {
     private int xx;
     private int yy;
     private int zz;
+    private List<Chunk> chunks;
 
     public Region loadRegion(String name) {
         ConfigurationSection region = getRegionsFile().getConfigurationSection("regions." + name);
@@ -61,6 +63,21 @@ public class RegionCuboid extends Region {
         } else {
             this.world = null;
         }
+
+        chunks = Lists.newArrayList();
+        for (int xxx = (x < xx ? x : xx); xxx <= (x < xx ? xx : x); xxx++) {
+            for (int yyy = (y < yy ? y : yy); yyy <= (y < yy ? yy : y); yyy++) {
+                for (int zzz = (z < zz ? z : zz); zzz <= (z < zz ? zz : z); zzz++) {
+                    Block block = Bukkit.getWorld(world).getBlockAt(xxx, yyy, zzz);
+                    Chunk chunk = block.getLocation().getChunk();
+                    if (inRegion(block.getLocation())) {
+                        if (!chunks.contains(chunk)) {
+                            chunks.add(chunk);
+                        }
+                    }
+                }
+            }
+        }
         return this;
     }
 
@@ -76,20 +93,6 @@ public class RegionCuboid extends Region {
     }
 
     public List<Chunk> getChunks() {
-        List<Chunk> chunks = Lists.newArrayList();
-        for (int xxx = (x < xx ? x : xx); xxx <= (x < xx ? xx : x); xxx++) {
-            for (int yyy = (y < yy ? y : yy); yyy <= (y < yy ? yy : y); yyy++) {
-                for (int zzz = (z < zz ? z : zz); zzz <= (z < zz ? zz : z); zzz++) {
-                    Block block = Bukkit.getWorld(world).getBlockAt(xxx, yyy, zzz);
-                    Chunk chunk = block.getLocation().getChunk();
-                    if (inRegion(block.getLocation())) {
-                        if (!chunks.contains(chunk)) {
-                            chunks.add(chunk);
-                        }
-                    }
-                }
-            }
-        }
         return chunks;
     }
 
