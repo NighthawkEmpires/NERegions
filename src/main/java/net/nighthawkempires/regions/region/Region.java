@@ -55,8 +55,6 @@ public abstract class Region implements Comparable<Region> {
 
     public abstract boolean inRegion(Location location);
 
-    public abstract List<Chunk> getChunks();
-
     public boolean inRegion(Player player) {
         return inRegion(player.getLocation());
     }

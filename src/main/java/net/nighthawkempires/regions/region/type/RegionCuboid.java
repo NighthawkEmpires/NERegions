@@ -63,21 +63,6 @@ public class RegionCuboid extends Region {
         } else {
             this.world = null;
         }
-
-        chunks = Lists.newArrayList();
-        for (int xxx = (x < xx ? x : xx); xxx <= (x < xx ? xx : x); xxx++) {
-            for (int yyy = (y < yy ? y : yy); yyy <= (y < yy ? yy : y); yyy++) {
-                for (int zzz = (z < zz ? z : zz); zzz <= (z < zz ? zz : z); zzz++) {
-                    Block block = Bukkit.getWorld(world).getBlockAt(xxx, yyy, zzz);
-                    Chunk chunk = block.getLocation().getChunk();
-                    if (inRegion(block.getLocation())) {
-                        if (!chunks.contains(chunk)) {
-                            chunks.add(chunk);
-                        }
-                    }
-                }
-            }
-        }
         return this;
     }
 
@@ -92,8 +77,17 @@ public class RegionCuboid extends Region {
         }
     }
 
-    public List<Chunk> getChunks() {
-        return chunks;
+    public boolean containsChunk(Chunk chunk) {
+        for (int x = 0; x <= 15; x++) {
+            for (int z = 0; z <= 15; z++) {
+                int y = 64;
+                Block block = chunk.getBlock(x, y, z);
+                if (inRegion(block.getLocation())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private FileConfiguration getRegionsFile() {
