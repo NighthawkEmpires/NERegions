@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="NECore">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/server/plugins/NECore.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

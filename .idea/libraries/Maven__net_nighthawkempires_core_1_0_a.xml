@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.nighthawkempires:core:1.0_a">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/nighthawkempires/core/1.0_a/core-1.0_a.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/nighthawkempires/core/1.0_a/core-1.0_a-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/nighthawkempires/core/1.0_a/core-1.0_a-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

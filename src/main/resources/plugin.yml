@@ -1,0 +1,14 @@
+name: NERegions
+main: net.nighthawkempires.regions.NERegions
+version: 1.0_a
+depend: [NECore]
+description: Regions Plugin for Nighthawk Empires.
+commands:
+  regions:
+    usage: /<command>
+    aliases: [region, reg]
+    description: Regions command for NERegions.
+  portals:
+    usage: /<command>
+    aliases: [portal]
+    description: Portals command for NERegions.
