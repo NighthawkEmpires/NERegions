@@ -9,10 +9,10 @@
     <version>1.0_a</version>
 
     <repositories>
-        <repository>
+        <!--<repository>
             <id>ne-repo</id>
             <url>http://144.217.67.194:8081/artifactory/nighthawkempires</url>
-        </repository>
+        </repository>-->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
